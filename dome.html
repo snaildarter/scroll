@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <title>滚动条示例1</title>
-    <link href="nw-scroll-default.css" rel="stylesheet" />
+    <link href="scroll.css" rel="stylesheet" />
     <style type="text/css">
         /**{
             padding:0px;
@@ -16,52 +16,11 @@
             padding: 2px;
             cursor:pointer;
         }
-        #demo1>li>ul{
-            display:none;
-        }
-    </style>
-    <style type="text/css">
-        /*.sc_b_l{
-            display:none;
-        }
-        .sc_b_r {
-            display: none;
-        }
-        .sc_r_t {
-            display: none;
-        }
-        .sc_r_b {
-            display: none;
-        }*/
     </style>
 </head>
 <body style="background:#b5adad;">
     <div style="width:400px;margin:50px auto;height:300px;color:#fff;background:#009688;">
         <ul id="demo1" style="display: inline-block;">
-            <li>
-                <a>▶ 打开子级1</a>
-                <ul>
-                    <li>这是子级</li>
-                    <li>这是子级</li>
-                    <li>这是子级</li>
-                </ul>
-            </li>
-            <li>
-                <a>▶ 打开子级2</a>
-                <ul>
-                    <li>这是子级</li>
-                    <li>这是子级</li>
-                    <li>这是子级</li>
-                </ul>
-            </li>
-            <li>
-                <a>▶ 打开子级3</a>
-                <ul>
-                    <li>这是子级</li>
-                    <li>这是子级</li>
-                    <li>这是子级</li>
-                </ul>
-            </li>
             <li>
                 <a>▶ 打开子级4</a>
                 <ul>
@@ -70,42 +29,11 @@
                     <li>这是子级</li>
                 </ul>
             </li>
-            <li>
-                <a>▶ 打开子级5</a>
-                <ul>
-                    <li>这是子级</li>
-                    <li>这是子级</li>
-                    <li>这是子级</li>
-                </ul>
-            </li>
-            <li>
-                <a>▶ 打开子级6</a>
-                <ul>
-                    <li>这是子级</li>
-                    <li>这是子级</li>
-                    <li>这是子级</li>
-                </ul>
-            </li>
-            <li>
-                <a>▶ 打开子级7</a>
-                <ul>
-                    <li>这是子级</li>
-                    <li>这是子级</li>
-                    <li>这是子级</li>
-                </ul>
-            </li>
-            <li>
-                <a>▶ 打开子级8</a>
-                <ul>
-                    <li>这是子级</li>
-                    <li>这是子级</li>
-                    <li>这是子级</li>
-                </ul>
-            </li>
+
         </ul>
     </div>
     <!--<script src="nw-scroll.js"></script>-->
-    <script src="nw-scroll.min.js"></script>
+    <script src="scroll.js"></script>
     <script type="text/javascript">
         "use strict";
         var a_list = document.getElementsByTagName("a"), i;
@@ -114,7 +42,7 @@
         var scroll = nw.scroll(div1, {
             yShow: false,
             xShow: true,
-            // btnsShow:false,
+            btnsShow:false,
             autoHide: false
         });
 

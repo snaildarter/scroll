@@ -1,7 +1,33 @@
-//版本:1.0.3
-//作者:聂未
-"use strict";
-(function (w, d, u) {
+
+/*!
+ * JavaScript Scroll v0.0.1
+ *
+ * Released under the MIT license
+ */
+;(function (factory) {
+    var registeredInModuleLoader = false;
+    if (typeof define === 'function' && define.amd) {
+        define(factory);
+        registeredInModuleLoader = true;
+    }
+    if (typeof exports === 'object') {
+        module.exports = factory();
+        registeredInModuleLoader = true;
+    }
+    if (!registeredInModuleLoader) {
+        var OldCookies = window.Cookies;
+        var api = window.Cookies = factory();
+        api.noConflict = function () {
+            window.Cookies = OldCookies;
+            return api;
+        };
+    }
+}(function (){
+    "use strict";
+
+    var w = window,
+        d = document,
+        u = undefined;
     function nwScroll(inDoms, inParams) {
         var apis = [];
         function initScroll(inDom) {
@@ -120,8 +146,8 @@
                     doms.sc_r.clientWidth && parseFloat(doms.sc_r_c_bar.style.top) && (resetSite({ clientName: "clientHeight", aim: "top", cName: "sc_r_c", barName: "sc_r_c_bar" }))
                 );
                 params.xShow && (
-                    doms.sc_b.style.left = doms.sc_r && !!doms.sc_r.clientWidth ? doms.sc_r.clientWidth + "px" : "3%",
-                    doms.sc_b.style.width = doms.sc_r && !!doms.sc_r.clientWidth ? doms.sc_cn.clientWidth - 2 * doms.sc_r.clientWidth + "px" : "94%",
+                    // doms.sc_b.style.left = doms.sc_r && !!doms.sc_r.clientWidth ? doms.sc_r.clientWidth + "px" : "3%",
+                    // doms.sc_b.style.width = doms.sc_r && !!doms.sc_r.clientWidth ? doms.sc_cn.clientWidth - 2 * doms.sc_r.clientWidth + "px" : "94%",
                     doms.sc_b_bl.style.width = doms.sc_b_c.style.width = doms.sc_b.clientWidth - 2 * (params.btnsShow ? doms.sc_b_l.clientWidth : 0) + "px",
                     doms.sc_b_bl.style.left = doms.sc_b_c.style.left = (params.btnsShow ? doms.sc_b_l.clientWidth : 0) + "px",
                     doms.sc_b_c_bar.style.width = parseInt(doms.sc_cn.clientWidth / doms.sc_m.clientWidth * doms.sc_b_c.clientWidth) + "px",
@@ -502,8 +528,7 @@
         if (inDoms.length === u) {
             initScroll(inDoms);
             return apis[0];
-        }
-        else {
+        }else {
             for (var i = 0; i < inDoms.length; i++) {
                 initScroll(inDoms[i]);
             }
@@ -511,4 +536,5 @@
         }
     }
     w.nw = w.nw || {}, w.nw.scroll = nwScroll;
-})(window, document, undefined);
+    return nwScroll;
+});
